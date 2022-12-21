@@ -1,5 +1,4 @@
-# hadoop-data-lake
-Small data lake setup
+# Data Lake
 
 <a name="readme-top"></a>
 
@@ -17,10 +16,9 @@ Small data lake setup
 <details>
   <summary>Table of Contents</summary>
   <ol>    
-    <li><a href="##about-the-project">About The Project</a>/li>
-    <li><a href="#hdfs-logical-architecture">HDFS Logical Architecture</a></li>
+    <li><a href="#about-the-project">About the Project</a></li>
+    <li><a href="#cluster-topology">Cluster Topology</a></li>
     <li><a href="#architecture">Architecture</a></li>
-    <li><a href="#prototyping">Prototyping</a></li>
     <li><a href="#built-with">Built With</a></li>
   </ol>
 </details>
@@ -29,38 +27,67 @@ Small data lake setup
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-Sponsor / client: Large communication, IT and entertainment company\
-Staus: Test
+Project: Training and education\
+Status: Proof of concept (PoC)
 
-Summary:\
-Sometimes customers make purchases the they cannot or do not want to pay for. This leads to a direct loss of money for the the company (project sponsor). In order to minimize such bad debts, a machine learning model was implemented in SAP HANA. This model predicts the likelihood of bad debts based on customer demographics and transactions made. Based on the the result, measures may be taken (e.g. lower purchase limit).
+Scope:\
+This PoC aims to build a data lake. The data should be distributed in a cluster with several nodes. In addition, a small big data ecosystem is being set up for data to be processed, analyzed and visualized. The data processing should support both batch and streaming. The tools used should be completely open source.
 
-Goals:
-- 
+- Basic installation of the big data cluster with five nodes
+- Installation and configuration of the Apache Hadoop Framework (HDFS, YARN, MapReduce)
+- Installation and setup of Apache Spark and Apache Cassandra
+- Installation of the Apache Zeppelin notebook and configuration of the Spark interpreter
+- Transfer data to the cluster and upload to HDFS
+- Data access via Zeppelin Notebook and analysis using Python
+- Creating a streaming generator and processing the stream with Spark and Zeppelin
 
 
-## HDFS Logical Architecture
-![alt text](https://github.com/0LIFR1/hadoop-data-lake/blob/main/hdfs_logical_architecture.png)
+## Cluster Topology
+A cluster with five nodes (bd-1 to bd-5) is set up for this PoC. The server infrastructure is provided by SWITCHengines. The individual nodes are small in terms of performance and storage and would not be suitable for a real big data project.
+
+<img src="https://github.com/0LIFR1/hadoop-data-lake/blob/main/cluster_topology.png" width=50% height=50%>
+
+The following components are installed and configured:
+
+* bd-1:
+  * HDFS NameNode
+  * HDFS ResourceManager
+  * HDFS SecondaryNameNode
+  * HDFS NodeManager
+  * HDFS DataNode
+  * SparkMaster
+* bd-2:
+  * SparkWorker Zeppelin
+* bd-3:
+  * HDFS DataNode
+  * SparkWorker
+  * Cassandra (seed provider and seed node)
+* bd-4:
+  * HDFS DataNode
+  * SparkWorker
+  * Cassandra (seed node)
+* bd-5:
+  * HDFS DataNode
+  * SparkWorker
+  * Cassandra (seed node)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## Architecture
-![alt text](https://github.com/0LIFR1/hadoop-data-lake/blob/main/data_lake_archtitecture.png)
+Workflow:
+- User transfers csv file from client to cluster (ssh)
+- On the cluster, the data is loaded into the HDFS and/or imported into Cassandra
+- Data can be written to a socket via a streaming generator and read from there using Spark structured streaming
+- Analysis and evaluation using Zeppelin notebooks. Data can be loaded via Spark or HDFS using the corresponding interpreters
+
+<img src="https://github.com/0LIFR1/hadoop-data-lake/blob/main/data_lake_architecture.png" width=50% height=50%>
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-## Testing and Prototyping
-
-* Import data into HDFS
-* Basic data analysis tasks
-* Loading data from HDFS file to Spark
-* Data analysis using Spark (pyspark) and Zeppelin Notebook
-* Basic data streaming (Spark streaming reader)
-
 
 <!-- BUILT WITH -->
 ## Built With
 
+[![Linux][linux-shield]][linux-url]\
 [![Apache Hadoop][apache-shield]][apache-url] [![Spark][spark-shield]][spark-url] [![Cassandra][cassandra-shield]][cassandra-url]\
 [![Python][python-shield]][python-url] [![Pandas][pandas-shield]][pandas-url] [![Numpy][numpy-shield]][numpy-url] [![Matplotlib][matplotlib-shield]][matplotlib-url]
 
@@ -89,6 +116,8 @@ Goals:
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/linkedin_username
 [product-screenshot]: images/screenshot.png
+[linux-shield]: https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black
+[linux-url]: https://www.linux.org/ 
 [rstudio-shield]: https://img.shields.io/badge/R-276DC3?style=for-the-badge&logo=r&logoColor=white
 [rstudio-url]: https://posit.co/
 [jupyter-shield]: https://img.shields.io/badge/Jupyter-F37626.svg?&style=for-the-badge&logo=Jupyter&logoColor=white
@@ -103,3 +132,9 @@ Goals:
 [spark-url]: https://spark.apache.org/
 [cassandra-shield]: https://img.shields.io/badge/Cassandra-1287B1?style=for-the-badge&logo=apache%20cassandra&logoColor=white
 [cassandra-url]: https://cassandra.apache.org/_/index.html
+[pandas-shield]: https://img.shields.io/badge/Pandas-2C2D72?style=for-the-badge&logo=pandas&logoColor=white
+[pandas-url]: https://pandas.pydata.org/docs/index.html
+[numpy-shield]: https://img.shields.io/badge/Numpy-777BB4?style=for-the-badge&logo=numpy&logoColor=white
+[numpy-url]: https://numpy.org/
+[matplotlib-shield]: https://img.shields.io/badge/Matplotlib-%23ffffff.svg?style=for-the-badge&logo=Matplotlib&logoColor=black
+[matplotlib-url]: https://matplotlib.org/
