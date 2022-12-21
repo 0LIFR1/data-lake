@@ -45,7 +45,7 @@ This PoC aims to build a data lake. The data should be distributed in a cluster 
 ## Cluster Topology
 A cluster with five nodes (bd-1 to bd-5) is set up for this PoC. The server infrastructure is provided by SWITCHengines. The individual nodes are small in terms of performance and storage and would not be suitable for a real big data project.
 
-<img src="https://github.com/0LIFR1/hadoop-data-lake/blob/main/cluster_topology.png" width=50% height=50%>
+<img src="https://github.com/0LIFR1/hadoop-data-lake/blob/main/cluster_topology.png" width=60% height=60%>
 
 The following components are installed and configured:
 
@@ -80,7 +80,7 @@ Workflow:
 - Data can be written to a socket via a streaming generator and read from there using Spark structured streaming
 - Analysis and evaluation using Zeppelin notebooks. Data can be loaded via Spark or HDFS using the corresponding interpreters
 
-<img src="https://github.com/0LIFR1/hadoop-data-lake/blob/main/data_lake_architecture.png" width=50% height=50%>
+<img src="https://github.com/0LIFR1/hadoop-data-lake/blob/main/data_lake_architecture.png" width=60% height=60%>
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
