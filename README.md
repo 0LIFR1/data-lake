@@ -45,7 +45,7 @@ This PoC aims to build a data lake. The data should be distributed in a cluster 
 ## Cluster Topology
 A cluster with five nodes (bd-1 to bd-5) is set up for this PoC. The server infrastructure is provided by SWITCHengines. The individual nodes are small in terms of performance and storage and would not be suitable for a real big data project.
 
-<img src="https://github.com/0LIFR1/hadoop-data-lake/blob/main/cluster_topology.png" width=60% height=60%>
+<img src="https://github.com/0LIFR1/hadoop-data-lake/blob/main/cluster_topology.png">
 
 The following components are installed and configured:
 
@@ -80,7 +80,7 @@ Workflow:
 - Data can be written to a socket via a streaming generator and read from there using Spark structured streaming
 - Analysis and evaluation using Zeppelin notebooks. Data can be loaded via Spark or HDFS using the corresponding interpreters
 
-<img src="https://github.com/0LIFR1/hadoop-data-lake/blob/main/data_lake_architecture.png" width=60% height=60%>
+<img src="https://github.com/0LIFR1/hadoop-data-lake/blob/main/data_lake_architecture.png">
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -88,7 +88,7 @@ Workflow:
 ## Built With
 
 [![Linux][linux-shield]][linux-url]\
-[![Apache Hadoop][apache-shield]][apache-url] [![Spark][spark-shield]][spark-url] [![Cassandra][cassandra-shield]][cassandra-url]\
+[![Apache Hadoop][apache-hadoop-shield]][apache-hadoop-url] [![Spark][spark-shield]][spark-url] [![Cassandra][cassandra-shield]][cassandra-url]\
 [![Python][python-shield]][python-url] [![Pandas][pandas-shield]][pandas-url] [![Numpy][numpy-shield]][numpy-url] [![Matplotlib][matplotlib-shield]][matplotlib-url]
 
 <!-- Logo examples
@@ -126,8 +126,8 @@ Workflow:
 [python-url]: https://www.python.org/
 [scikit-learn-shield]: https://img.shields.io/badge/scikit_learn-F7931E?style=for-the-badge&logo=scikit-learn&logoColor=white
 [scikit-learn-url]: https://scikit-learn.org/stable/
-[apache-shield]: https://img.shields.io/badge/Apache-D22128?style=for-the-badge&logo=Apache&logoColor=white
-[apache-url]: https://hadoop.apache.org/
+[apache-hadoop-shield]: https://img.shields.io/badge/Apache%20Hadoop-6CF?logo=apachehadoop&logoColor=fff&style=for-the-badge
+[apache-hadoop-url]: https://hadoop.apache.org/
 [spark-shield]: https://img.shields.io/badge/Apache_Spark-FFFFFF?style=for-the-badge&logo=apachespark&logoColor=#E35A16
 [spark-url]: https://spark.apache.org/
 [cassandra-shield]: https://img.shields.io/badge/Cassandra-1287B1?style=for-the-badge&logo=apache%20cassandra&logoColor=white
