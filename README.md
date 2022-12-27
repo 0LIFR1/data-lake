@@ -27,10 +27,10 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-Project: Training and education\
+Project: Training and education<br>
 Status: Proof of concept (PoC)
 
-Scope:\
+**Summary**:<br>
 This PoC aims to build a data lake. The data should be distributed in a cluster with several nodes. In addition, a small big data ecosystem is being set up for data to be processed, analyzed and visualized. The data processing should support both batch and streaming. The tools used should be completely open source.
 
 - Basic installation of the big data cluster with five nodes
